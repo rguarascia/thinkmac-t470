@@ -28,7 +28,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
 | **Battery**          | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
 | **USB**              | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
-| **Card Reader (SD)** |                                               | Untested | - |
+| **Card Reader (SD)** | Realtek USB 3.0 Card Reader (0BDA:0316)       | Untested | - |
 | **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
 | **Camera**           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
 | **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
