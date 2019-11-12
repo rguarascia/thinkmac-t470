@@ -27,9 +27,10 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 | **Memory**           | 16GB DDR4 2666Mhz (SK Hynix)                  | Yes     | - |
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
 | **Battery**          | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
-| **USB**              | Sunrise Point-LP USB 3.0 xHCI Controller      | Yes     | USBInjectAll.kext |
+| **USB**              | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
 | **Card Reader (SD)** |                                               | Untested | - |
 | **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
+| **Camera**           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
 | **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
 | **WiFi/Bluetooth**   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
 | **Function/Media keys** |                                            | Yes     | - |
@@ -51,6 +52,9 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 
 ³Only have tested USB3, ethernet and charging; video output untested.
 
+## TODO
+
+- Create custom SSDT injector for XHC 100-series chipset (8086:9d2f)
 
 ## Known Issues
 
