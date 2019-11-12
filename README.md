@@ -2,7 +2,7 @@
 
 _**Supports:** macOS Catalina 10.15.1 including iCloud, iMessage, FaceTime, etc._
 
-[comment]: ![comingsoon](/install.png)
+![macOS Catalina on the ThinkPad T470](/macos-t470.png)
 
 ### Introduction
 This is my attempt at outlining the necessary configuration and dependencies to get macOS running on a ThinkPad T470. There's quite a lot of useful Reddit & forum posts, guides and other repositories here on GitHub that I was able to pull small bits of information from in order to make this guide. One problem that I discovered is that the T470 has shipped with many different hardware configurations making a one-size-fits-all approach impossible. Another other problem I found is that many of the sources I used didn't provide enough detail making the learning curve a little more challenging. In turn, I decided to create this for anyone else who may have recently purchased one of these T470 models (specifically, Type 20JM) that Lenovo has had on sale recently.
