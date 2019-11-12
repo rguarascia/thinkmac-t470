@@ -174,6 +174,10 @@ This is my attempt at outlining the necessary configuration and dependencies to 
                 Notify(\_SB.PCI0.LPCB.KBD, 0x0285)
 
             }
+            
+### Function and Media Keys
+
+- Coming soon...
 
 ### Touchpad
 
