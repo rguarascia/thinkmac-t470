@@ -186,7 +186,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 Make sure you generate a new serial number and UUID in Clover Configurator to avoid any conflicts with iCloud, iMessage, etc.
 
 ### Special Thanks
-- [okay](https://github.com/okay/t470) - one of the first repositories I discovered
+- [okay](https://github.com/okay/t470) - some good info here which kickstarted my efforts
 - [RehabMan](https://github.com/RehabMan) - base config.plist for Intel 520, various kexts, DSDT patches and SSDTs
 - [tluck](https://github.com/tluck/Lenovo-T460-Clover/tree/master/DSDT.T470) - modified version of RehabMan's SSDT-BATC; SSDT-Thinkpad_Clickpad
 - [ImmersiveX](https://github.com/ImmersiveX/clover-theme-minimal-dark) - dark theme for Clover
