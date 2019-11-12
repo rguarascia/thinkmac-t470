@@ -27,25 +27,34 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 | **Memory**           | 16GB DDR4 2666Mhz (SK Hynix)                  | Yes     | - |
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
 | **Battery**          | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
-| **USB**              | Sunrise Point-LP USB 3.0 xHCI Controller      | Yes     | USBInjectAll.kext |
-| **Card Reader (SD)** |                                               | Untested | - |
+| **USB**              | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
+| **Card Reader (SD)** | Realtek USB 3.0 Card Reader (0BDA:0316)       | Untested | - |
 | **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
+| **Camera**           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
 | **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
 | **WiFi/Bluetooth**   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
-| **Fn (Media) keys**  |                                               | Yes     | - |
+| **Function/Media keys** |                                            | Yes     | - |
 | **Fingerprint Reader**| Validity Sensors (138a:0097)                 | No      | - |
 | **Touchpad**         | Synaptics UltraNav                            | Yes     | VoodooPS2Controller.kext, SSDT |
+| **Trackpoint**       |                                               | Yes²     | VoodooPS2Controller.kext |
 | **Backlight**        |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
 | **Touchscreen**      | AU Optronics Touchscreen                      | No      | - |
 | **Sleep/Wake**       |                                               | WIP     | - |
+| **Power Button**     |                                               | Yes     | - |
 | **Power Management** |                                               | WIP     | ACPIPowerManagement.kext |
-| **Other**            | ThinkPad Ultra Dock (90w)                     | Yes²    | - |
+| **Headphone Jack**   |                                               | -       | - |
+| **Thunderbolt**      |                                               | -       | - |
+| **Other**            | ThinkPad Ultra Dock (90w)                     | Yes³    | - |
 
 ¹Bluetooth appears to be detected and allows you to scan but never detects devices.
 
-²Only have tested USB3, ethernet and charging; video output untested.
+²Trackpoint isn't smooth and jumps around a lot; I haven't looked into this so there could be improvement.
 
-***
+³Only have tested USB3, ethernet and charging; video output untested.
+
+## TODO
+
+- Create custom SSDT injector for XHC 100-series chipset (8086:9d2f)
 
 ## Known Issues
 
@@ -54,22 +63,22 @@ This is my attempt at outlining the necessary configuration and dependencies to 
   - Sleep appears to work but battery drain is horrendous while sleeping (100% to 0% in < 8h)
 
   - Battery life overall is pretty terrible (only getting ~1.5h on a full charge)
-
-***
+  
 
 ## Hardware Setup and Configuration
 
-> _**Info:** Everything you see below is already contained in the EFI folder. Since not all models of the ThinkPad T470 are completely the same, I'm including the methods I used to get the individual modules working which will hopefully help you._
+> _**Info:** Everything you see below is already contained in the EFI folder. Since not all models of the ThinkPad T470 are completely the same, I'm including the methods I used to get the individual modules working which can be cherrypicked to finalize your setup._
 
 > _**Usage:** For usage information or support on a specific kext, follow the associated link to its repository page._
 
 ### Prerequisites
 
-   > _**Info:** These kexts are needed to get a hackintosh off the ground. Place these under **/EFI/CLOVER/kexts/Other**_
+   > _**Info:** These are needed to get this off the ground. Place the kexts under **/EFI/CLOVER/kexts/Other** and config.plist under **/EFI/CLOVER**_
   
   - [Lilu.kext](https://github.com/acidanthera/Lilu)
   - [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen)
   - [FakeSMC.kext](https://github.com/RehabMan/OS-X-FakeSMC-kozlek)
+  - [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
   
 
 ### Battery
@@ -94,12 +103,10 @@ This is my attempt at outlining the necessary configuration and dependencies to 
        | change Notify(\_SB.BAT1 to Notify(_SB.BATC | _SB.BAT1 | _SB.BATC |
        | change Notify(BAT0 to Notify(BATC          | BAT0     | BATC     |
        | change Notify(BAT0 to Notify(BATC          | BAT1     | BATC     |
-       
-      > _**Note:** You'll need to know the PCI location. I only had two entries appear: one for the iGPU (should have key named "ig-platform-id") and another for onboard audio._
 
 ### Audio
 
-> _**Info:** This was fairly straightforward. You'll need to know which codec your system has which you can find by booting from a Linux live USB. Try running `lspci | grep audio` or `aplay -l`._
+> _**Info:** This was fairly straightforward. You'll need to know which codec your system has which you can find by booting from a Linux live USB. Try running `lspci | grep audio` or `aplay -l`. My ALC298 works with a layout-id of 3._
 
   - [AppleALC.kext](https://github.com/acidanthera/AppleALC)
   
@@ -167,6 +174,10 @@ This is my attempt at outlining the necessary configuration and dependencies to 
                 Notify(\_SB.PCI0.LPCB.KBD, 0x0285)
 
             }
+            
+### Function and Media Keys
+
+- Coming soon...
 
 ### Touchpad
 
@@ -188,7 +199,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 Make sure you generate a new serial number and UUID in Clover Configurator to avoid any conflicts with iCloud, iMessage, etc.
 
 ### Special Thanks
-- [okay](https://github.com/okay/t470) - one of the first repositories I discovered
+- [okay](https://github.com/okay/t470) - some good info here which kickstarted my efforts
 - [RehabMan](https://github.com/RehabMan) - base config.plist for Intel 520, various kexts, DSDT patches and SSDTs
 - [tluck](https://github.com/tluck/Lenovo-T460-Clover/tree/master/DSDT.T470) - modified version of RehabMan's SSDT-BATC; SSDT-Thinkpad_Clickpad
 - [ImmersiveX](https://github.com/ImmersiveX/clover-theme-minimal-dark) - dark theme for Clover
