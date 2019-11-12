@@ -92,8 +92,6 @@ This is my attempt at outlining the necessary configuration and dependencies to 
        | change Notify(\_SB.BAT1 to Notify(_SB.BATC | _SB.BAT1 | _SB.BATC |
        | change Notify(BAT0 to Notify(BATC          | BAT0     | BATC     |
        | change Notify(BAT0 to Notify(BATC          | BAT1     | BATC     |
-       
-      > _**Note:** You'll need to know the PCI location. I only had two entries appear: one for the iGPU (should have key named "ig-platform-id") and another for onboard audio._
 
 ### Audio
 
