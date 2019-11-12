@@ -32,18 +32,24 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 | **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
 | **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
 | **WiFi/Bluetooth**   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
-| **Fn (Media) keys**  |                                               | Yes     | - |
+| **Function/Media keys** |                                            | Yes     | - |
 | **Fingerprint Reader**| Validity Sensors (138a:0097)                 | No      | - |
 | **Touchpad**         | Synaptics UltraNav                            | Yes     | VoodooPS2Controller.kext, SSDT |
+| **Trackpoint**       |                                               | Yes²     | VoodooPS2Controller.kext |
 | **Backlight**        |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
 | **Touchscreen**      | AU Optronics Touchscreen                      | No      | - |
 | **Sleep/Wake**       |                                               | WIP     | - |
+| **Power Button**     |                                               | Yes     | - |
 | **Power Management** |                                               | WIP     | ACPIPowerManagement.kext |
-| **Other**            | ThinkPad Ultra Dock (90w)                     | Yes²    | - |
+| **Headphone Jack**   |                                               | -       | - |
+| **Thunderbolt**      |                                               | -       | - |
+| **Other**            | ThinkPad Ultra Dock (90w)                     | Yes³    | - |
 
 ¹Bluetooth appears to be detected and allows you to scan but never detects devices.
 
-²Only have tested USB3, ethernet and charging; video output untested.
+²Trackpoint isn't smooth and jumps around a lot; I haven't looked into this so there could be improvement.
+
+³Only have tested USB3, ethernet and charging; video output untested.
 
 
 ## Known Issues
@@ -96,7 +102,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 
 ### Audio
 
-> _**Info:** This was fairly straightforward. You'll need to know which codec your system has which you can find by booting from a Linux live USB. Try running `lspci | grep audio` or `aplay -l`._
+> _**Info:** This was fairly straightforward. You'll need to know which codec your system has which you can find by booting from a Linux live USB. Try running `lspci | grep audio` or `aplay -l`. My ALC298 works with a layout-id of 3._
 
   - [AppleALC.kext](https://github.com/acidanthera/AppleALC)
   
