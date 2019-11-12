@@ -57,17 +57,18 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 
 ## Hardware Setup and Configuration
 
-> _**Info:** Everything you see below is already contained in the EFI folder. Since not all models of the ThinkPad T470 are completely the same, I'm including the methods I used to get the individual modules working which will hopefully help you._
+> _**Info:** Everything you see below is already contained in the EFI folder. Since not all models of the ThinkPad T470 are completely the same, I'm including the methods I used to get the individual modules working which can be cherrypicked to finalize your setup._
 
 > _**Usage:** For usage information or support on a specific kext, follow the associated link to its repository page._
 
 ### Prerequisites
 
-   > _**Info:** These kexts are needed to get a hackintosh off the ground. Place these under **/EFI/CLOVER/kexts/Other**_
+   > _**Info:** These are needed to get this off the ground. Place the kexts under **/EFI/CLOVER/kexts/Other** and config.plist under **/EFI/CLOVER**_
   
   - [Lilu.kext](https://github.com/acidanthera/Lilu)
   - [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen)
   - [FakeSMC.kext](https://github.com/RehabMan/OS-X-FakeSMC-kozlek)
+  - [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
   
 
 ### Battery
