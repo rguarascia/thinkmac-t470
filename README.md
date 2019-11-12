@@ -179,7 +179,11 @@ This is my attempt at outlining the necessary configuration and dependencies to 
             
 ### Function and Media Keys
 
-- Coming soon...
+> _**Note:** This section is still a work in progress. I haven't had time to play around with the remaining "special keys" such as Settings (F9), Bluetooth (F10), On-screen Keyboard (F11) and Favorites (F12). I imagine these will require a similar DSDT patch as the brightness keys by determining the keys ID via ACPIDebug.kext.
+
+### SD Card Reader
+
+> _**Note:** This section is still a work in progress. I don't have a regular need for this so it's definitley the last thing on my list, however I did stumble across a kext patch that may work. I'll test this out and update.
 
 ### Touchpad
 
@@ -197,7 +201,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 
 ***
 
-### Post-installation work (serial, uuid)
+### Post-installation work (Serial, UUID)
 Make sure you generate a new serial number and UUID in Clover Configurator to avoid any conflicts with iCloud, iMessage, etc.
 
 ### Special Thanks
