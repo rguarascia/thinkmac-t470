@@ -28,7 +28,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
 | **Battery**          | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
 | **USB**              | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
-| **Card Reader (SD)** | Realtek USB 3.0 Card Reader (0BDA:0316)       | Untested | - |
+| **Card Reader (SD)** | Realtek USB 3.0 Card Reader (0BDA:0316)       | WIP | - |
 | **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
 | **Camera**           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
 | **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
@@ -63,6 +63,8 @@ This is my attempt at outlining the necessary configuration and dependencies to 
   - Sleep appears to work but battery drain is horrendous while sleeping (100% to 0% in < 8h)
 
   - Battery life overall is pretty terrible (only getting ~1.5h on a full charge)
+  
+- I found a patch to enable the SD card reader but haven't had a chance to implement it yet
   
 
 ## Hardware Setup and Configuration
