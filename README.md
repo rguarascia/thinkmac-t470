@@ -45,7 +45,6 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 
 ²Only have tested USB3, ethernet and charging; video output untested.
 
-***
 
 ## Known Issues
 
@@ -54,8 +53,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
   - Sleep appears to work but battery drain is horrendous while sleeping (100% to 0% in < 8h)
 
   - Battery life overall is pretty terrible (only getting ~1.5h on a full charge)
-
-***
+  
 
 ## Hardware Setup and Configuration
 
