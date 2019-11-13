@@ -7,8 +7,20 @@ _**Supports:** macOS Catalina 10.15.1 including iCloud, iMessage, FaceTime, etc.
 ### Introduction
 This is my attempt at outlining the necessary configuration and dependencies to get macOS running on a ThinkPad T470. There's quite a lot of useful Reddit & forum posts, guides and other repositories here on GitHub that I was able to pull small bits of information from in order to make this guide. One problem that I discovered is that the T470 has shipped with many different hardware configurations making a one-size-fits-all approach impossible. Another other problem I found is that many of the sources I used didn't provide enough detail making the learning curve a little more challenging. In turn, I decided to create this for anyone else who may have recently purchased one of these T470 models (specifically, Type 20JM) that Lenovo has had on sale recently.
 
-### Disclaimer
-**Be careful!** Be sure to make backups as you modify your EFI partition in case you break something. In the information below, you'll see that I store all my kexts on the EFI partition. I don't know if there is any benefit to copying these files to either /S/L/E or /L/E but I haven't seen the need to. One advantage to this method is that despite system updates, the kext files are safe on the EFI partition from being deleted or modified.
+### Definitions
+This section is used to specify some abbreviations or acronyms you'll see either in this guide or elsewhere in the hackintosh community. It can be a little confusing following instructions if you don't know what certain things stand for.
+
+* **\/S\/L\/E** - /System/Library/Extensions (location of official Apple kexts)
+
+* **\/L\/E** - /Library/Extensions (location of modified/user installed kexts)
+
+* **\/C\/K\/O** - /CLOVER/kexts/Other (location of modified/user installed kexts used for installation/setup)
+
+### _Note on EFI and kexts location_
+For the purpose of this install, I keep my kexts stored on the flash drive's EFI partition under /C/K/O. Once you have a system that boots, copy the kexts to /L/E on the local drive and install Clover on the EFI partition of that drive. I would _**highly**_ recommend keeping the flash drive as a backup in the event that you're unable to boot from the local drive.
+
+As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-different-between-system-library-extensions-library-extensions.183139/post-1655165):
+  > There are a lot of kexts that don't work properly when injected (I see an example *every day*). Best to install all kexts to /L/E where they can be properly placed in kernel cache.
 
 ***
 
@@ -21,7 +33,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
     * **CSM Support:** enabled
 
 |                      | Hardware                                      | Working | Supported in            |
-| -------------------- | --------------------------------------------- |:-------:|:-----------------------:|
+|:-------------------- | :-------------------------------------------- |:-------:|:-----------------------:|
 | **CPU**              | Intel Core i7-6600U @ 2.6GHz (3.4GHz Turbo)   | Yes     | config.plist            |
 | **Graphics**         | Intel HD Graphics 520                         | Yes     | config.plist            |
 | **Memory**           | 16GB DDR4 2666Mhz (SK Hynix)                  | Yes     | - |
@@ -47,11 +59,9 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 | **Thunderbolt**      |                                               | -       | - |
 | **Other**            | ThinkPad Ultra Dock (90w)                     | Yes³    | - |
 
-¹Bluetooth appears to be detected and allows you to scan but never detects devices.
-
-²Trackpoint isn't smooth and jumps around a lot; I haven't looked into this so there could be improvement.
-
-³Only have tested USB3, ethernet and charging; video output untested.
+¹ Bluetooth appears to be detected and allows you to scan but never detects devices.\
+² Trackpoint isn't smooth and jumps around a lot; I haven't looked into this so there could be improvement.\
+³ Only have tested USB3, ethernet and charging; video output untested.
 
 ## TODO
 
@@ -76,8 +86,9 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 
 ### Prerequisites
 
-   > _**Info:** These are needed to get this off the ground. Place the kexts under **/EFI/CLOVER/kexts/Other** and config.plist under **/EFI/CLOVER**_
+   > _**Info:** These are needed to get this off the ground. Place the kexts on your EFI partition under **/CLOVER/kexts/Other** and config.plist under **/CLOVER**_
   
+  - USB flash drive with macOS installer and Clover installed (see [gibMacOS](https://github.com/corpnewt/gibMacOS))
   - [Lilu.kext](https://github.com/acidanthera/Lilu)
   - [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen)
   - [FakeSMC.kext](https://github.com/RehabMan/OS-X-FakeSMC-kozlek)
