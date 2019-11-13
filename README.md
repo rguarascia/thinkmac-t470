@@ -38,12 +38,12 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 | **Graphics**         | Intel HD Graphics 520                         | Yes     | config.plist            |
 | **Memory**           | 16GB DDR4 2666Mhz (SK Hynix)                  | Yes     | - |
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
-| [**Battery**](#battery)          | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
-| [**USB**](#usb)              | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
+| [**Battery**](#battery) | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
+| [**USB**](#usb-camera-usb-ports-etc) | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
 | [**SD Card Reader**](#sd-card-reader) | Realtek USB 3.0 Card Reader (0BDA:0316)       | WIP     | - |
-| [**Audio**](#audio)            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
-| [**Camera**](#usb)           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
-| [**Ethernet**](#ethernet)         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
+| [**Audio**](#audio) | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
+| [**Camera**](#usb-camera-usb-ports-etc)           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
+| [**Ethernet**](#ethernet) | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
 | **WiFi/BT** _(M.2 2230 "A")_ | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
 | **WWAN** _(M.2 2242 "B")_ | Not installed                                 | -       | - |
 | [**Function/media keys**](#function-and-media-keys) |                                            | Yes     | - |
@@ -53,9 +53,9 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 | **Keyboard backlight** |                                             | Yes     | - |
 | [**Backlight**](#backlight) |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
 | **Touchscreen**      | AU Optronics Touchscreen                      | No      | - |
-| [**Sleep/Wake**](#power-management) |                                               | WIP     | - |
+| [**Sleep/Wake**](#power-management-sleep-wake-battery-life-etc) |                                               | WIP     | - |
 | **Power Button**     |                                               | Yes     | - |
-| [**Power Management**](#power-management) |                                               | WIP     | ACPIPowerManagement.kext |
+| [**Power Management**](#power-management-sleep-wake-battery-life-etc) |                                               | WIP     | ACPIPowerManagement.kext |
 | **Headphone Jack**   |                                               | -       | - |
 | **Thunderbolt**      |                                               | -       | - |
 | **Other**            | ThinkPad Ultra Dock (90w)                     | Yes³    | - |
