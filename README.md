@@ -44,8 +44,8 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 | **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
 | **Camera**           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
 | **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
-| **WiFi/BT** _(M.2 2230 A-key)_   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
-| **WWAN** _(M.2 2230 B-key)_             | Not installed                                 | -       | - |
+| **WiFi/BT** _(M.2 2230-A)_   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
+| **WWAN** _(M.2 2242-B)_             | Not installed                                 | -       | - |
 | **Function/Media keys** |                                            | Yes     | - |
 | **Fingerprint Reader**| Validity Sensors (138a:0097)                 | No      | - |
 | **Touchpad**         | Synaptics UltraNav                            | Yes     | VoodooPS2Controller.kext, SSDT |
