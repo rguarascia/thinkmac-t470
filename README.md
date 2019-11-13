@@ -196,7 +196,7 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 
 ### SD Card Reader
 
-> _**Note:** This section is still a work in progress. I don't have a regular need for this so it's definitley the last thing on my list, however I did stumble across a kext patch that may work. I'll test this out and update._
+> _**Coming soon:** This section is still a work in progress. I don't have a regular need for this so it's definitley the last thing on my list, however I did stumble across a kext patch that may work. I'll test this out and update._
 
 ### Touchpad
 
