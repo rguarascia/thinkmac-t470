@@ -50,6 +50,7 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 | **Fingerprint Reader**| Validity Sensors (138a:0097)                 | No      | - |
 | **Touchpad**         | Synaptics UltraNav                            | Yes     | VoodooPS2Controller.kext, SSDT |
 | **Trackpoint**       |                                               | Yes²     | VoodooPS2Controller.kext |
+| **Keyboard backlight** |                                             | Yes     | - |
 | **Backlight**        |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
 | **Touchscreen**      | AU Optronics Touchscreen                      | No      | - |
 | **Sleep/Wake**       |                                               | WIP     | - |
