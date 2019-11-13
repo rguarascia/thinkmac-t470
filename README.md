@@ -32,7 +32,7 @@ This is my attempt at outlining the necessary configuration and dependencies to 
 | **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
 | **Camera**           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
 | **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
-| **WiFi/Bluetooth** _(M.2 2230 A-key)_   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
+| **WiFi/BT** _(M.2 2230 A-key)_   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
 | **WWAN** _(M.2 2230 B-key)_             | Not installed                                 | -       | - |
 | **Function/Media keys** |                                            | Yes     | - |
 | **Fingerprint Reader**| Validity Sensors (138a:0097)                 | No      | - |
