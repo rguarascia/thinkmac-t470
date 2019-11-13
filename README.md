@@ -68,6 +68,8 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 
 - Create custom SSDT injector for XHC 100-series chipset (8086:9d2f)
 
+- Test patch for SD card reader
+
 ## Known Issues
 
 - Power Management still needs to be looked into
