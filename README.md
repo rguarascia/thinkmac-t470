@@ -38,24 +38,24 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 | **Graphics**         | Intel HD Graphics 520                         | Yes     | config.plist            |
 | **Memory**           | 16GB DDR4 2666Mhz (SK Hynix)                  | Yes     | - |
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
-| **Battery**          | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
-| **USB**              | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
-| **Card Reader (SD)** | Realtek USB 3.0 Card Reader (0BDA:0316)       | WIP     | - |
-| **Audio**            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
-| **Camera**           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
-| **Ethernet**         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
-| **WiFi/BT** _(M.2 2230-A)_   | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
-| **WWAN** _(M.2 2242-B)_             | Not installed                                 | -       | - |
-| **Function/Media keys** |                                            | Yes     | - |
+| [**Battery**](#battery)          | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
+| [**USB**](#usb)              | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
+| [**SD Card Reader**](#sd-card-reader) | Realtek USB 3.0 Card Reader (0BDA:0316)       | WIP     | - |
+| [**Audio**](#audio)            | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
+| [**Camera**](#usb)           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
+| [**Ethernet**](#ethernet)         | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
+| **WiFi/BT** _(M.2 2230 "A")_ | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
+| **WWAN** _(M.2 2242 "B")_ | Not installed                                 | -       | - |
+| [**Function/media keys**](#function-and-media-keys) |                                            | Yes     | - |
 | **Fingerprint Reader**| Validity Sensors (138a:0097)                 | No      | - |
-| **Touchpad**         | Synaptics UltraNav                            | Yes     | VoodooPS2Controller.kext, SSDT |
+| [**Touchpad**](#touchpad) | Synaptics UltraNav                            | Yes     | VoodooPS2Controller.kext, SSDT |
 | **Trackpoint**       |                                               | Yes²     | VoodooPS2Controller.kext |
 | **Keyboard backlight** |                                             | Yes     | - |
-| **Backlight**        |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
+| [**Backlight**](#backlight) |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
 | **Touchscreen**      | AU Optronics Touchscreen                      | No      | - |
-| **Sleep/Wake**       |                                               | WIP     | - |
+| [**Sleep/Wake**](#power-management) |                                               | WIP     | - |
 | **Power Button**     |                                               | Yes     | - |
-| **Power Management** |                                               | WIP     | ACPIPowerManagement.kext |
+| [**Power Management**](#power-management) |                                               | WIP     | ACPIPowerManagement.kext |
 | **Headphone Jack**   |                                               | -       | - |
 | **Thunderbolt**      |                                               | -       | - |
 | **Other**            | ThinkPad Ultra Dock (90w)                     | Yes³    | - |
@@ -78,7 +78,7 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
   
 - I found a patch to enable the SD card reader but haven't had a chance to implement it yet
   
-
+ 
 ## Hardware Setup and Configuration
 
 > _**Info:** Everything you see below is already contained in the EFI folder. Since not all models of the ThinkPad T470 are completely the same, I'm including the methods I used to get the individual modules working which can be cherrypicked to finalize your setup._
@@ -211,6 +211,14 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 - SSDT-Thinkpad_Clickpad.aml
 
   - **Location:** /EFI/CLOVER/ACPI/patched
+
+### USB (Camera, USB ports, etc.)
+
+> _**Coming Soon**_
+
+### Power Management (Sleep, wake, battery life, etc.)
+
+> _**Coming Soon**_
 
 ***
 
