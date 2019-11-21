@@ -40,7 +40,7 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
 | [**Battery**](#battery) | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
 | [**USB**](#usb-camera-usb-ports-etc) | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
-| [**SD Card Reader**](#sd-card-reader) | Realtek USB 3.0 Card Reader (0BDA:0316)       | WIP     | - |
+| [**SD Card Reader**](#usb-camera-usb-ports-etc) | Realtek USB 3.0 Card Reader (0BDA:0316)       | Yes     | USBInjectAll.kext |
 | [**Audio**](#audio) | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
 | [**Camera**](#usb-camera-usb-ports-etc)           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
 | [**Ethernet**](#ethernet) | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
@@ -66,9 +66,7 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 
 ## TODO
 
-- Create custom SSDT injector for XHC 100-series chipset (8086:9d2f)
-
-- Test patch for SD card reader
+- Power management
 
 ## Known Issues
 
@@ -77,8 +75,6 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
   - Sleep appears to work but battery drain is horrendous while sleeping (100% to 0% in < 8h)
 
   - Battery life overall is pretty terrible (only getting ~1.5h on a full charge)
-  
-- I found a patch to enable the SD card reader but haven't had a chance to implement it yet
   
  
 ## Hardware Setup and Configuration
@@ -195,10 +191,6 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 ### Function and Media Keys
 
 > _**Note:** This section is still a work in progress. I haven't had time to play around with the remaining "special keys" such as Settings (F9), Bluetooth (F10), On-screen Keyboard (F11) and Favorites (F12). I imagine these will require a similar DSDT patch as the brightness keys by determining the keys ID via ACPIDebug.kext._
-
-### SD Card Reader
-
-> _**Coming soon:** This section is still a work in progress. I don't have a regular need for this so it's definitley the last thing on my list, however I did stumble across a kext patch that may work. I'll test this out and update._
 
 ### Touchpad
 
