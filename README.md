@@ -216,7 +216,29 @@ As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-diffe
 
 ### USB (Camera, USB ports, etc.)
 
-> _**Coming Soon**_
+> _**Info:** I have created a custom SSDT-UIAC for use with USBInjectAll.kext. I would advise you to follow [RehabMan's guide](https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311/) to make sure the port assignments are the same. I have removed all unused ports, WWAN and Biometrics from this SSDT._
+
+| port name | location            | device                |
+|:---------:|---------------------|-----------------------|
+| HS01      | Left side, rear     | USB3 Port (as HS 2.0) |
+| HS02      | Right side, rear    | USB3 Port (as HS 2.0) |
+| HS03      | -                   | -                     |
+| HS04      | Right side, forward | USB3 Port (as HS 2.0) |
+| HS05      | Internal            | WWAN                  |
+| HS06      | -                   | -                     |
+| HS07      | Internal            | M.2 Bluetooth         |
+| HS08      | Internal            | Integrated Camera     |
+| HS09      | Internal            | Biometrics            |
+| HS10      | Internal            | Touchscreen           |
+| SS01      | _See HS01_          | USB3 port (as SS 3.0) |
+| SS02      | _See HS02_          | USB3 port (as SS 3.0) |
+| SS03      | Internal            | SD Card Reader        |
+| SS04      | _See HS04_          | USB3 port (as SS 3.0) |
+| SS05¹     | Left side, rear     | USB-C port (as SS 3.0)|
+| SS06      | -                   | -                     |
+| USR1      | -                   | -                     |
+| USR2      | -                   | -                     |
+
 
 ### Power Management (Sleep, wake, battery life, etc.)
 
