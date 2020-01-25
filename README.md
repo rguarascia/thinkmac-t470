@@ -17,10 +17,7 @@ This section is used to specify some abbreviations or acronyms you'll see either
 * **\/C\/K\/O** - /CLOVER/kexts/Other (location of modified/user installed kexts used for installation/setup)
 
 ### Note on EFI and kexts location
-For the purpose of this install, I keep my kexts stored on the flash drive's EFI partition under /C/K/O. Once you have a system that boots, copy the kexts to /L/E on the local drive and install Clover on the EFI partition of that drive. I would _**highly**_ recommend keeping the flash drive as a backup in the event that you're unable to boot from the local drive.
-
-As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-different-between-system-library-extensions-library-extensions.183139/post-1655165):
-  > There are a lot of kexts that don't work properly when injected (I see an example *every day*). Best to install all kexts to /L/E where they can be properly placed in kernel cache.
+For the purpose of this install, I keep my kexts stored on the flash drive's EFI partition under /C/K/O. Once you have a system that boots, copy the EFI folder from the flash drive to the local EFI partition (you can use Clover Configurator to mount it). Some recommend installing kexts locally to /L/E but I haven't seen any issues with storing them on the EFI partition. I would _**highly**_ recommend keeping the flash drive as a backup in the event that you're unable to boot from the local drive due to an update or your own experimenting.
 
 ***
 
