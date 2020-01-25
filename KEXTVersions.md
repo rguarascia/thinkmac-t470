@@ -1,4 +1,4 @@
-### KEXT Version Information
+### KEXT Version Information - v2.2 (25 Jan 2020)
 
 | KEXT                    | Version   | Usage                |
 |:------------------------|:----------|:---------------------|
