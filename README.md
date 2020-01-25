@@ -7,10 +7,6 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 ### Introduction
 This is my attempt at outlining the necessary configuration and dependencies to get macOS running on a ThinkPad T470. There's quite a lot of useful Reddit & forum posts, guides and other repositories here on GitHub that I was able to pull small bits of information from in order to make this guide. One problem that I discovered is that the T470 has shipped with many different hardware configurations making a one-size-fits-all approach impossible. Another other problem I found is that many of the sources I used didn't provide enough detail making the learning curve a little more challenging. In turn, I decided to create this for anyone else who may have recently purchased one of these T470 models (specifically, Type 20JM) that Lenovo has had on sale recently.
 
-### Changelog
-* 13 Nov 2019 - Initial release based on 10.15.1
-* 25 Jan 2020 - Updated to 10.15.2 and updated Lilu, WEG and AppleALC to latest
-
 ### Definitions
 This section is used to specify some abbreviations or acronyms you'll see either in this guide or elsewhere in the hackintosh community. It can be a little confusing following instructions if you don't know what certain things stand for.
 
