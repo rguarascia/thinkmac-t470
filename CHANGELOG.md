@@ -12,3 +12,4 @@
     - Fixes: Several minute delay after boot before airportd would start resulting in no WiFi initially
   - Updated config.plist:
     - DefaultVolume set to LastBootedVolume
+  - AppleALC: changed layout-id from '3' to '47' to see if this fixes disappearing audio device on wake
