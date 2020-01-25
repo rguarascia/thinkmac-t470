@@ -1,8 +1,8 @@
 ### Changelog
-* 13 Nov 2019
+## 13 Nov 2019
   - Initial release based on 10.15.1
- 
-* 25 Jan 2020
+
+## 25 Jan 2020
   - Supports Catalina 10.15.2
   - Updated KEXTs:
     - Lilu, WhateverGreen and AppleALC to latest
