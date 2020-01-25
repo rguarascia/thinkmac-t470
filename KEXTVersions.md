@@ -6,7 +6,7 @@
 | AppleALC                | 1.4.5.    | Audio                |
 | AppleBacklightFixup     | 2018-1013 | Backlight            |
 | CPUFriend               | 1.2.0     | CPU/Power Management |
-| FakeSMC                 | (Clover)  | SMC/Power Management |
+| FakeSMC                 | 2018-0915 | SMC/Power Management |
 | IntelMausiEthernet      | 2018-1031 | Ethernet             |
 | Lilu                    | 1.4.1     | KEXT Patcher + API   |
 | USBInjectAll            | 2018-1108 | USB                  |
