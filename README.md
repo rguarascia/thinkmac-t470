@@ -49,7 +49,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 | **Trackpoint**       |                                               | Yes²     | VoodooPS2Controller.kext |
 | **Keyboard backlight** |                                             | Yes     | - |
 | [**Backlight**](#backlight) |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
-| **Touchscreen**      | AU Optronics Touchscreen                      | No      | - |
+| **Touchscreen**      | AU Optronics Touchscreen (appears as Raydium Touch System)                      | No      | - |
 | [**Sleep/Wake**](#power-management-sleep-wake-battery-life-etc) |                                               | WIP     | - |
 | **Power Button**     |                                               | Yes     | - |
 | [**Power Management**](#power-management-sleep-wake-battery-life-etc) |                                               | WIP     | ACPIPowerManagement.kext |
@@ -58,7 +58,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 | **Other**            | ThinkPad Ultra Dock (90w)                     | Yes³    | - |
 
 ¹ Bluetooth appears to be detected and allows you to scan but never detects devices.\
-² Trackpoint isn't smooth and jumps around a lot; I haven't looked into this so there could be improvement.\
+² Trackpoint is a little too fast; I haven't looked into this so there could be improvement.\
 ³ Only have tested USB3, ethernet and charging; video output untested.
 
 ## Known Issues
