@@ -7,10 +7,6 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 ### Introduction
 This is my attempt at outlining the necessary configuration and dependencies to get macOS running on a ThinkPad T470. There's quite a lot of useful Reddit & forum posts, guides and other repositories here on GitHub that I was able to pull small bits of information from in order to make this guide. One problem that I discovered is that the T470 has shipped with many different hardware configurations making a one-size-fits-all approach impossible. Another other problem I found is that many of the sources I used didn't provide enough detail making the learning curve a little more challenging. In turn, I decided to create this for anyone else who may have recently purchased one of these T470 models (specifically, Type 20JM) that Lenovo has had on sale recently.
 
-### Changelog
-* 13 Nov 2019 - Initial release based on 10.15.1
-* 25 Jan 2020 - Updated to 10.15.2 and updated Lilu, WEG and AppleALC to latest
-
 ### Definitions
 This section is used to specify some abbreviations or acronyms you'll see either in this guide or elsewhere in the hackintosh community. It can be a little confusing following instructions if you don't know what certain things stand for.
 
@@ -21,10 +17,7 @@ This section is used to specify some abbreviations or acronyms you'll see either
 * **\/C\/K\/O** - /CLOVER/kexts/Other (location of modified/user installed kexts used for installation/setup)
 
 ### Note on EFI and kexts location
-For the purpose of this install, I keep my kexts stored on the flash drive's EFI partition under /C/K/O. Once you have a system that boots, copy the kexts to /L/E on the local drive and install Clover on the EFI partition of that drive. I would _**highly**_ recommend keeping the flash drive as a backup in the event that you're unable to boot from the local drive.
-
-As indicated by RehabMan [here](https://www.tonymacx86.com/threads/what-is-different-between-system-library-extensions-library-extensions.183139/post-1655165):
-  > There are a lot of kexts that don't work properly when injected (I see an example *every day*). Best to install all kexts to /L/E where they can be properly placed in kernel cache.
+For the purpose of this install, I keep my kexts stored on the flash drive's EFI partition under /C/K/O. Once you have a system that boots, copy the EFI folder from the flash drive to the local EFI partition (you can use Clover Configurator to mount it). Some recommend installing kexts locally to /L/E but I haven't seen any issues with storing them on the EFI partition. I would _**highly**_ recommend keeping the flash drive as a backup in the event that you're unable to boot from the local drive due to an update or your own experimenting.
 
 ***
 
