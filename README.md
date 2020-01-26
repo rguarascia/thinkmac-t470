@@ -61,22 +61,11 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 ² Trackpoint isn't smooth and jumps around a lot; I haven't looked into this so there could be improvement.\
 ³ Only have tested USB3, ethernet and charging; video output untested.
 
-## TODO
-
-- Create custom SSDT injector for XHC 100-series chipset (8086:9d2f)
-
-- Test patch for SD card reader
-
 ## Known Issues
-
-- Power Management still needs to be looked into
-
-  - Sleep appears to work but battery drain is horrendous while sleeping (100% to 0% in < 8h)
-
-  - Battery life overall is pretty terrible (only getting ~1.5h on a full charge)
-  
-- I found a patch to enable the SD card reader but haven't had a chance to implement it yet
-  
+  - Audio device still disappearing after sleep but not everytime now
+  - HEVC videos do not play even though HEVC is supported (per VideoProc)
+  - Battery life while sleeping is still high (10% per hour)
+  - Overall battery life is only 4hr (maybe the best on dual 3-cell batteries)
  
 ## Hardware Setup and Configuration
 
@@ -87,11 +76,14 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 ### Prerequisites
 
    > _**Info:** These are needed to get this off the ground. Place the kexts on your EFI partition under **/CLOVER/kexts/Other** and config.plist under **/CLOVER**_
-  
-  - USB flash drive with macOS installer and Clover installed (see [gibMacOS](https://github.com/corpnewt/gibMacOS))
+   
   - [Lilu.kext](https://github.com/acidanthera/Lilu)
   - [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen)
-  - [FakeSMC.kext](https://github.com/RehabMan/OS-X-FakeSMC-kozlek)
+  - VirtualSMC.kext
+    - SMCBatteryManager.kext
+    - SMCLightSensor.kext
+    - SMCProcessor.kext
+    - SMCSuperIO.kext
   - [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
   
 
@@ -100,15 +92,8 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 > _**Info:** The ThinkPad T470 has two batteries, an internal and external (a.k.a removable). This uses an SSDT patch to make macOS see the two batteries as one large battery._
 
   - SSDT-BATC-T470.aml
-  
     - **Location:** /EFI/CLOVER/ACPI/patched
-    
-  - [ACPIBatteryManager.kext](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver)
-  
-    - **Location:** /EFI/CLOVER/kexts/Other
-    
   - config.plist (DSDT Patches)
-  
     - **Add via Clover Configurator:** ACPI > DSDT > Patches
      
        | comment                                    | find | replace |
@@ -120,18 +105,13 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 
 ### Audio
 
-> _**Info:** This was fairly straightforward. You'll need to know which codec your system has which you can find by booting from a Linux live USB. Try running `lspci | grep audio` or `aplay -l`. My ALC298 works with a layout-id of 3._
+> _**Info:** This was fairly straightforward. You'll need to know which codec your system has which you can find by booting from a Linux live USB. Try running `lspci | grep audio` or `aplay -l`. My ALC298 works with a layout-id of 3 and 47._
 
   - [AppleALC.kext](https://github.com/acidanthera/AppleALC)
-  
   - [Lilu.kext](https://github.com/acidanthera/Lilu)
-
     - **Both kexts located at:** /EFI/CLOVER/kexts/Other
-    
   - config.plist
-  
      - **Option 1** - Set Device Property
-  
        - **Add via Clover Configurator:** Devices > Properties
     
            | Properties Key | Properties Value | Value Type |
@@ -141,32 +121,22 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
          > _**Note:** You'll need to know the PCI location. I only had two entries appear: one for the iGPU (should have key named "ig-platform-id") and another for onboard audio (PciRoot(0)/Pci(0x1f,3)._
         
     - **Option 2** - Use Boot Argument
-  
       - **Add via Clover Configurator:** Boot > Arguments
-      
-        `alcid=3`
+        `alcid=47`
 
 ### Ethernet
-
   - [IntelMausiEthernet.kext](https://github.com/RehabMan/OS-X-Intel-Network)
-  
     - **Location:** /EFI/CLOVER/kexts/Other
+  > _**Note:** For some reason, I couldn't get this to work with the installer so I used a USB to Ethernet adapter. It does work after booting the first time.
 
 
 ### Backlight
-
   - SSDT-PNLF.aml
-  
     - **Location:** /EFI/CLOVER/ACPI/patched
-    
   - [AppleBacklightFixup.kext](https://github.com/RehabMan/AppleBacklightFixup)
-  
     - **Location:** /EFI/CLOVER/kexts/Other
-    
   -  Brightness Controls
-  
      > _**Note:** My model's brightness keys (Fn+F5 & Fn+F6) uses ACPI not PS2. To determine the key name (\_Q14, \_Q15 below) please see RehabMan's [ACPIDebug.kext](https://github.com/RehabMan/OS-X-ACPI-Debug)._
-     
      > _**Compatibility Note:** If using ACPIDebug.kext to determine keys, syslog/Console.app will not show these anymore. From Terminal run `log show --last 5 | grep ACPIDebug` instead._
 
      - *Requires DSDT patch; my model uses LPC**B**.KBD **not** LPC.PS2M or LPC.PS2K*
@@ -199,30 +169,25 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 
 ### Touchpad
 
-> _**Info:** For my Synaptics touchpad, I was able to get it working using RehabMan's VoodooPS2Controller.kext but tluck's SSDT-Thinkpad_Clickpad patch was required to enable the PrefPane. Multi-touch gestures are fairly limited. You can utilize two finger scrolling but swiping to go back a page in Safari, pinch-to-zoom and rotate don't work. I would also recommend disabling tap-to-click as this caused the cursor to jump to a second position on the screen if you touched the touchpad simultaneoulsy with a second finger._
+> _**Info:** For my Synaptics touchpad, I was able to get it working using RehabMan's VoodooPS2Controller.kext but tluck's SSDT-Thinkpad_Clickpad patch was required to enable the PrefPane. Multi-touch gestures are fairly limited. You can utilize two finger scrolling but swiping to go back a page in Safari, pinch-to-zoom and rotate don't work. I would also recommend disabling tap-to-click as this caused the cursor to intermittently jump to a second position on the screen if you touched the touchpad simultaneoulsy with a second finger._
 
 > _**Note:** To enable three finger gesture for Exposé you must define the gesture as a keyboard shortcut under SysPrefs > Keyboard > Shortcuts. Under Mission Control, select Application Windows and make the gesture on the touchpad to set it._
 
 - [VoodooPS2Controller.kext](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller)
-
   - **Location:** /EFI/CLOVER/kexts/Other
-
 - SSDT-Thinkpad_Clickpad.aml
-
   - **Location:** /EFI/CLOVER/ACPI/patched
 
 ### USB (Camera, USB ports, etc.)
-
-> _**Coming Soon**_
+Using USBInjectAll, I was able to build a custom SSDT (SSDT-UIAC) to only enable the ports that are physically present. I disabled the internal USB port designated for biometrics since it doesn't work anyway.
 
 ### Power Management (Sleep, wake, battery life, etc.)
-
-> _**Coming Soon**_
+CPUFriend (KEXT) + CPUFriendFriend (SSDT patch) has allowed me to run the system down to 800Mhz and has prevented the CPU fan from running as often. Temps however around 45-50C when idle which is a little higher than I like but it doesn't seem to hurt anything.
 
 ***
 
 ### Post-installation work (Serial, UUID)
-Make sure you generate a new serial number and UUID in Clover Configurator to avoid any conflicts with iCloud, iMessage, etc.
+Make sure you generate a new serial number and UUID in Clover Configurator to avoid any conflicts with iCloud, iMessage, etc. I've removed some of my unique identifiers so they
 
 ### Special Thanks
 - [okay](https://github.com/okay/t470) - some good info here which kickstarted my efforts
