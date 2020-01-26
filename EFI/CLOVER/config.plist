@@ -91,7 +91,7 @@
 					<key>Comment</key>
 					<string>change HDAS to HDEF</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>SERBUw==</data>
 					<key>Replace</key>
@@ -234,7 +234,7 @@
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 -cdfon -igfxnohdmi</string>
+		<string>dart=0 nv_disable=1 -cdfon -igfxnohdmi -alcdbg -liludbg</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>
