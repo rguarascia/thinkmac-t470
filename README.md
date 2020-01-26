@@ -84,6 +84,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
     - SMCLightSensor.kext
     - SMCProcessor.kext
     - SMCSuperIO.kext
+    
   - [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
   
 
@@ -93,6 +94,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 
   - SSDT-BATC-T470.aml
     - **Location:** /EFI/CLOVER/ACPI/patched
+    
   - config.plist (DSDT Patches)
     - **Add via Clover Configurator:** ACPI > DSDT > Patches
      
@@ -110,6 +112,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
   - [AppleALC.kext](https://github.com/acidanthera/AppleALC)
   - [Lilu.kext](https://github.com/acidanthera/Lilu)
     - **Both kexts located at:** /EFI/CLOVER/kexts/Other
+    
   - config.plist
      - **Option 1** - Set Device Property
        - **Add via Clover Configurator:** Devices > Properties
@@ -127,14 +130,17 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 ### Ethernet
   - [IntelMausiEthernet.kext](https://github.com/RehabMan/OS-X-Intel-Network)
     - **Location:** /EFI/CLOVER/kexts/Other
+    
   > _**Note:** For some reason, I couldn't get this to work with the installer so I used a USB to Ethernet adapter. It does work after booting the first time.
 
 
 ### Backlight
   - SSDT-PNLF.aml
     - **Location:** /EFI/CLOVER/ACPI/patched
+    
   - [AppleBacklightFixup.kext](https://github.com/RehabMan/AppleBacklightFixup)
     - **Location:** /EFI/CLOVER/kexts/Other
+    
   -  Brightness Controls
      > _**Note:** My model's brightness keys (Fn+F5 & Fn+F6) uses ACPI not PS2. To determine the key name (\_Q14, \_Q15 below) please see RehabMan's [ACPIDebug.kext](https://github.com/RehabMan/OS-X-ACPI-Debug)._
      > _**Compatibility Note:** If using ACPIDebug.kext to determine keys, syslog/Console.app will not show these anymore. From Terminal run `log show --last 5 | grep ACPIDebug` instead._
@@ -162,6 +168,10 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 ### Function and Media Keys
 
 > _**Note:** This section is still a work in progress. I haven't had time to play around with the remaining "special keys" such as Settings (F9), Bluetooth (F10), On-screen Keyboard (F11) and Favorites (F12). I imagine these will require a similar DSDT patch as the brightness keys by determining the keys ID via ACPIDebug.kext._
+- Working:
+  - Mute, VolUp, VolDown, BrightDown, BrightUp
+- Not Working (yet):
+  - F1-F12, Mic, Display, Airplane, Settings, Bluetooth, OSK, Favorites
 
 ### SD Card Reader
 
