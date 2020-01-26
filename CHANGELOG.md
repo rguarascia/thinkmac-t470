@@ -1,3 +1,7 @@
+## Known Issues
+  - Audio device still disappearing after sleep but not everytime now
+  - HEVC videos do not play even though HEVC is supported (per VideoProc)
+
 ## Changelog
 #### v1.0 (13 Nov 2019)
   - Initial release based on 10.15.1
@@ -16,9 +20,3 @@
 
 #### v2.3 (26 Jan 2020)
   - Disabled HDAS to HDEF DSDT patch per AppleALC instruction
-
-
-
-## Known Issues
-  - Audio device still disappearing after sleep but not everytime now
-  - HEVC videos do not play even though HEVC is supported (per VideoProc)
