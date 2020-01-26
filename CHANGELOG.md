@@ -3,10 +3,10 @@
   - HEVC videos do not play even though HEVC is supported (per VideoProc)
 
 ## Changelog
-#### v1.0 (13 Nov 2019)
+#### v1.0 _(November 13, 2019)_
   - Initial release based on 10.15.1
 
-#### v2.2 (25 Jan 2020)
+#### v2.2 _(January 25, 2020)_
   - Supports Catalina 10.15.2
   - Updated KEXTs:
     - Lilu, WhateverGreen and AppleALC to latest
@@ -18,5 +18,5 @@
     - DefaultVolume set to LastBootedVolume
   - AppleALC: changed layout-id from '3' to '47' to see if this fixes disappearing audio device on wake
 
-#### v2.3 (26 Jan 2020)
+#### v2.3 _(January 26, 2020)_
   - Disabled HDAS to HDEF DSDT patch per AppleALC instruction
