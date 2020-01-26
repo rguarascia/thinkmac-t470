@@ -1,7 +1,3 @@
-## Known Issues
-  - Audio device still disappearing after sleep but not everytime now
-  - HEVC videos do not play even though HEVC is supported (per VideoProc)
-
 ## Changelog
 #### v1.0 _(November 13, 2019)_
   - Initial release based on 10.15.1
