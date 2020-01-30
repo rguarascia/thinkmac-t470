@@ -19,7 +19,8 @@
   - Switched back (again) to VirtualSMC after identifying ACPIBatteryManager as conflicting with SMCBatteryManager
 
 #### v2.3 _(January 29, 2020)_
-  - Applied "Instant Wake" DSDT patch to allow proper sleep
+  - Fixed: Battery drain over 6hr period sleeping was just under 2% (approx. 350hrs/14.5 days on full charge) thanks to Instant Wake fix by RehabMan
+    - Side affect: "Breathing" LED is stuck after wake even with patch applied under NVSS
   - Rebuilt custom USB SSDT with touchscreen and biometrics disabled
   - Fixed "restart on shutdown" bug by applying DSDT patch
   - Added "Extras" directory which includes individual DSDT patches

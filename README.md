@@ -35,7 +35,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 | **Graphics**         | Intel HD Graphics 520                         | Yes     | config.plist            |
 | **Memory**           | 16GB DDR4 2666Mhz (SK Hynix)                  | Yes     | - |
 | **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
-| [**Battery**](#battery) | 3 + 3-cell (Internal + Removable)             | Yes     | ACPIBatteryManager.kext |
+| [**Battery**](#battery) | 3 + 3-cell (Internal + Removable)             | Yes     | SMCBatteryManager.kext |
 | [**USB**](#usb-camera-usb-ports-etc) | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
 | [**SD Card Reader**](#sd-card-reader) | Realtek USB 3.0 Card Reader (0BDA:0316)       | WIP     | - |
 | [**Audio**](#audio) | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
@@ -64,7 +64,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 ## Known Issues
   - Audio device still disappearing after sleep but not everytime now
   - HEVC videos do not play even though HEVC is supported (per VideoProc)
-  - Battery life affected by "instant wake" bug (work in progress)
+  - **Fixed!** ~~Battery life affected by "instant wake" bug (work in progress)~~
   - Overall battery life is only 4hr (maybe the best on dual 3-cell batteries)
  
 ## Hardware Setup and Configuration
