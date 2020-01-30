@@ -14,5 +14,14 @@
     - DefaultVolume set to LastBootedVolume
   - AppleALC: changed layout-id from '3' to '47' to see if this fixes disappearing audio device on wake
 
-#### v2.3 _(January 26, 2020)_
+#### v2.2.1 _(January 26, 2020)_
   - Disabled HDAS to HDEF DSDT patch per AppleALC instruction
+  - Switched back (again) to VirtualSMC after identifying ACPIBatteryManager as conflicting with SMCBatteryManager
+
+#### v2.3 _(January 29, 2020)_
+  - Applied "Instant Wake" DSDT patch to allow proper sleep
+  - Rebuilt custom USB SSDT with touchscreen and biometrics disabled
+  - Fixed "restart on shutdown" bug by applying DSDT patch
+  - Added "Extras" directory which includes individual DSDT patches
+  - Moved \*.DSL files to their own directory
+  - Cleaned up unused/leftover files
