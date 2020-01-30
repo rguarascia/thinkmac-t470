@@ -19646,6 +19646,8 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "SKL     ", 0x00000000)
         If (LEqual (Arg0, 0x03))
         {
             \NVSS (0x00)
+            \_SB.PCI0.LPCB.EC.LED (Zero, 0x80)
+            \_SB.PCI0.LPCB.EC.LED (0x0A, 0x80)
             Store (\_SB.PCI0.LPCB.EC.AC._PSR (), \PWRS)
             If (\OSC4)
             {
