@@ -64,7 +64,7 @@ For the purpose of this install, I keep my kexts stored on the flash drive's EFI
 ## Known Issues
   - Audio device still disappearing after sleep but not everytime now
   - HEVC videos do not play even though HEVC is supported (per VideoProc)
-  - Battery life while sleeping is still high (10% per hour)
+  - Battery life affected by "instant wake" bug (work in progress)
   - Overall battery life is only 4hr (maybe the best on dual 3-cell batteries)
  
 ## Hardware Setup and Configuration
