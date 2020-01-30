@@ -19,6 +19,7 @@
   - Switched back (again) to VirtualSMC after identifying ACPIBatteryManager as conflicting with SMCBatteryManager
 
 #### v2.3 _(January 29, 2020)_
+  - Applied "Instant Wake" DSDT patch to allow proper sleep
   - Rebuilt custom USB SSDT with touchscreen and biometrics disabled
   - Fixed "restart on shutdown" bug by applying DSDT patch
   - Added "Extras" directory which includes individual DSDT patches
