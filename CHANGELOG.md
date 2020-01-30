@@ -16,6 +16,7 @@
 
 #### v2.2.1 _(January 26, 2020)_
   - Disabled HDAS to HDEF DSDT patch per AppleALC instruction
+  - Switched back (again) to VirtualSMC after identifying ACPIBatteryManager as conflicting with SMCBatteryManager
 
 #### v2.3 _(January 29, 2020)_
   - Rebuilt custom USB SSDT with touchscreen and biometrics disabled
