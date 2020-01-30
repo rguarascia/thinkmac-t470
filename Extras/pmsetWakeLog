@@ -1,0 +1,1 @@
+pmset -g log | grep "Wake" > ~/Desktop/pmsetWakeLog.txt

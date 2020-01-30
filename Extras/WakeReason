@@ -1,0 +1,1 @@
+log show --style syslog | fgrep "Wake reason"
