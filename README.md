@@ -1,4 +1,4 @@
-# Lenovo ThinkPad T470 (Type 20JM) Hackintosh
+# thinkmac-t470
 
 _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc._
 
@@ -44,6 +44,7 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 ### Unsupported
 - Intel Dual-Band Wireless AC 8260 (vPro)
 - Fingerprint reader (Validity Sensors - 138a:0097)
+- Touchscreen (Raydium Touch Systems)
  
 ## III. Hardware Setup and Configuration
 
@@ -62,19 +63,17 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
   - SMCLightSensor.kext
   - SMCProcessor.kext
   - SMCSuperIO.kext
-    
-  - [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
+- [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
   
 
 ### Battery
 
 > _**Info:** The ThinkPad T470 has two batteries, an internal and external (a.k.a removable). This uses an SSDT patch to make macOS see the two batteries as one large battery._
 
-  - SSDT-BATC-T470.aml
-    - **Location:** /EFI/CLOVER/ACPI/patched
-    
-  - config.plist (DSDT Patches)
-    - **Add via Clover Configurator:** ACPI > DSDT > Patches
+- SSDT-BATC-T470.aml
+  - **Location:** /EFI/CLOVER/ACPI/patched 
+- config.plist (DSDT Patches)
+  - **Add via Clover Configurator:** ACPI > DSDT > Patches
      
        | comment                                    | find | replace |
        |--------------------------------------------|------|---------|
@@ -87,22 +86,20 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 
 > _**Info:** This was fairly straightforward. You'll need to know which codec your system has which you can find by booting from a Linux live USB. Try running `lspci | grep audio` or `aplay -l`. My ALC298 works with a layout-id of 3 and 47._
 
-  - [AppleALC.kext](https://github.com/acidanthera/AppleALC)
-  - [Lilu.kext](https://github.com/acidanthera/Lilu)
-    - **Both kexts located at:** /EFI/CLOVER/kexts/Other
+- [AppleALC.kext](https://github.com/acidanthera/AppleALC)
+- [Lilu.kext](https://github.com/acidanthera/Lilu)
+  - **Both kexts located at:** /EFI/CLOVER/kexts/Other    
+- config.plist
+  - **Option 1** - Set Device Property
+    - **Add via Clover Configurator:** Devices > Properties
+      | Properties Key | Properties Value | Value Type |
+      |----------------|------------------|:----------:|
+      | layout-id      | 3                | DATA       |
     
-  - config.plist
-     - **Option 1** - Set Device Property
-       - **Add via Clover Configurator:** Devices > Properties
-    
-           | Properties Key | Properties Value | Value Type |
-           |----------------|------------------|:----------:|
-           | layout-id      | 3                | DATA       |
-    
-         > _**Note:** You'll need to know the PCI location. I only had two entries appear: one for the iGPU (should have key named "ig-platform-id") and another for onboard audio (PciRoot(0)/Pci(0x1f,3)._
+      > _**Note:** You'll need to know the PCI location. I only had two entries appear: one for the iGPU (should have key named "ig-platform-id") and another for onboard audio (PciRoot(0)/Pci(0x1f,3)._
         
-    - **Option 2** - Use Boot Argument
-      - **Add via Clover Configurator:** Boot > Arguments
+  - **Option 2** - Use Boot Argument
+    - **Add via Clover Configurator:** Boot > Arguments
         `alcid=47`
 
 ### Ethernet
