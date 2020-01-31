@@ -88,8 +88,10 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 
 - [AppleALC.kext](https://github.com/acidanthera/AppleALC)
 - [Lilu.kext](https://github.com/acidanthera/Lilu)
-  - **Both kexts located at:** /EFI/CLOVER/kexts/Other    
-- config.plist
+  - **Both kexts located at:** /EFI/CLOVER/kexts/Other
+
+
+- config.plist 
   - **Option 1** - Set Device Property
     - **Add via Clover Configurator:** Devices > Properties
     
