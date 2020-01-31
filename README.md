@@ -51,8 +51,6 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 - Intel Dual-Band Wireless AC 8260 (vPro)
 - Fingerprint reader (Validity Sensors - 138a:0097)
 - Touchscreen (Raydium Touch Systems)
- 
-***
 
 ## Tools
 
@@ -144,16 +142,10 @@ In order to control the backlight using the brightness keys involves patching th
             }
             
 ## Function and Media Keys
-
-> _**Note:** This section is still a work in progress. I haven't had time to play around with the remaining "special keys" such as Settings (F9), Bluetooth (F10), On-screen Keyboard (F11) and Favorites (F12). I imagine these will require a similar DSDT patch as the brightness keys by determining the keys ID via ACPIDebug.kext._
-- Working:
-  - Mute, VolUp, VolDown, BrightDown, BrightUp
-- Not Working (yet):
-  - F1-F12, Mic, Display, Airplane, Settings, Bluetooth, OSK, Favorites
+> Coming soon
 
 ## SD Card Reader
-
-> _**Coming soon:** This section is still a work in progress. I don't have a regular need for this so it's definitley the last thing on my list, however I did stumble across a kext patch that may work. I'll test this out and update._
+> Coming soon
 
 ## Touchpad
 
@@ -167,12 +159,10 @@ In order to control the backlight using the brightness keys involves patching th
   - **Location:** /EFI/CLOVER/ACPI/patched
 
 ## USB (Camera, USB ports, etc.)
-Using USBInjectAll, I was able to build a custom SSDT (SSDT-UIAC) to only enable the ports that are physically present. I disabled the internal USB port designated for biometrics since it doesn't work anyway.
+> Coming soon
 
 ## Power Management (Sleep, wake, battery life, etc.)
-CPUFriend (KEXT) + CPUFriendFriend (SSDT patch) has allowed me to run the system down to 800Mhz and has prevented the CPU fan from running as often. Temps however around 45-50C when idle which is a little higher than I like but it doesn't seem to hurt anything.
-
-***
+> Coming soon
 
 ## Post-installation work (Serial, UUID)
 Make sure you generate a new serial number and UUID in Clover Configurator to avoid any conflicts with iCloud, iMessage, etc. I've removed some of my unique identifiers so they
