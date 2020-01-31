@@ -86,7 +86,7 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 - In order to get the ALC298 chipset working, we'll need to make use of [AppleALC.kext](https://github.com/acidanthera/AppleALC) (which requires [Lilu.kext](https://github.com/acidanthera/Lilu)). Download the latest version and place them in the `kexts\Other` directory on your EFI partition.
 - Now that we have the kexts, we need to tell Clover how to use them. Open your config.plist in Clover Configurator and use one of the two methods below:
   1. Add property under Devices\Properties:
-  [img_applealc_config](/Extras/applealc-config.png)
+  ![img_applealc_config](/Extras/applealc-config.png)
 
 > _**Tip:** Try running `lspci | grep audio` or `aplay -l` from a Linux live USB to find which codec your system has (e.g. ALC298)._
 
