@@ -12,7 +12,7 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 **Make sure you keep a disassembled copy of your DSDT that you apply patches to and then compile for use. If you don't, you'll have to reapply any previous patches each time you use another. I also recommend keeping a working backup of your DSDT.aml and DSDT.dsl files in the event a patch causes issues.**
  
 ## Hardware
-### Thinkpad T470 (2019)
+#### Thinkpad T470 (2019)
 - Part Number: 20JMS0Q400
 - BIOS 1.60 (N1QET85W)
   - Set default config
@@ -20,7 +20,7 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
   - Boot Mode: UEFI Only
   - CSM Support: enabled
   
-### Tested and working
+#### Tested and working
 - Intel Core i7-6600U @ 2.6GHz / 3.4Ghz Turbo       
 - Intel HD Graphics 520                             
 - 1920x1080 IPS Panel (Matte)
@@ -40,14 +40,14 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 - Power management                                  
 - Thinkpad/Power button LED (sleep mode)            
 
-### Untested
+#### Untested
   - Realtek USB Card Reader (0BDA:0316)
   - _WWAN (M.2 2242 "B") - Empty Slot_
   - Function/Media Keys (aside from Vol/Bright)
   - Headphone jack
   - Thunderbolt 3
   
-### Unsupported
+### # Unsupported
 - Intel Dual-Band Wireless AC 8260 (vPro)
 - Fingerprint reader (Validity Sensors - 138a:0097)
 - Touchscreen (Raydium Touch Systems)
