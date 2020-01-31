@@ -89,15 +89,12 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 - [AppleALC.kext](https://github.com/acidanthera/AppleALC)
 - [Lilu.kext](https://github.com/acidanthera/Lilu)
   - **Both kexts located at:** /EFI/CLOVER/kexts/Other
-
-
 - config.plist 
-  - **Option 1** - Set Device Property
-    - **Add via Clover Configurator:** Devices > Properties
+  - **Option 1** - Set Device Property (via Clover Configurator under Devices\Properties)
     
-        | Properties Key | Properties Value | Value Type |
-        |----------------|------------------|:----------:|
-        | layout-id      | 3                | DATA       |
+    | Properties Key | Properties Value | Value Type |
+    |----------------|------------------|:----------:|
+     | layout-id      | 3                | DATA       |
     
       > _**Note:** You'll need to know the PCI location. I only had two entries appear: one for the iGPU (should have key named "ig-platform-id") and another for onboard audio (PciRoot(0)/Pci(0x1f,3)._
         
