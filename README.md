@@ -108,7 +108,7 @@ Now that we have the plugin, we need to tell Clover how to use it. Open your con
 
 Getting the onboard network adapter working only requires placing [IntelMausiEthernet](https://github.com/RehabMan/OS-X-Intel-Network) under `/EFI/CLOVER/kexts/Other`.
     
-> _**Warning:** For some reason, I couldn't get this to work with the installer so I used a USB to Ethernet adapter. Once macOS was installed I was able to use the onboard network adapter.
+> _**Warning:** For some reason, I couldn't get this to work with the installer so I used a USB to Ethernet adapter. Once macOS was installed I was able to use the onboard network adapter._
 
 
 ## Backlight
