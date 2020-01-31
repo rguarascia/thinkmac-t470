@@ -4,62 +4,46 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 
 ![macOS Catalina on the ThinkPad T470](/macos-t470.png)
 
-### Introduction
-This is my attempt at outlining the necessary configuration and dependencies to get macOS running on a ThinkPad T470. There's quite a lot of useful Reddit & forum posts, guides and other repositories here on GitHub that I was able to pull small bits of information from in order to make this guide. One problem that I discovered is that the T470 has shipped with many different hardware configurations making a one-size-fits-all approach impossible. Another problem I found is that many of the sources I used didn't provide enough detail making the learning curve a little more challenging. In turn, I decided to create this for anyone else who may have purchased one of these T470 models (specifically, Type 20JM, although it may work on similar sub-models with minor modifications).
+## Introduction
 
-### Definitions
-This section is used to specify some abbreviations or acronyms you'll see either in this guide or elsewhere in the hackintosh community. It can be a little confusing following instructions if you don't know what certain things stand for.
+## Hardware
+### Thinkpad T470 (2019)
+- Part Number: 20JMS0Q400
+- BIOS 1.60 (N1QET85W)
+  - Set default config
+  - Secure Boot: disabled
+  - Boot Mode: UEFI Only
+  - CSM Support: enabled
+  
+### Tested and working
+- Intel Core i7-6600U @ 2.6GHz / 3.4Ghz Turbo       
+- Intel HD Graphics 520                             
+- 16GB DDR4 2666Mhz (SK Hynix)                      
+- Intel SSD Pro 7600P 512GB NVME                    
+- Dual 3-cell batteries                             
+- USB - XHC 100-series chipset (8086:9d2f)          
+- Realtek ALC298                                    
+- Integrated Camera (IMC Networks)                  
+- Intel I219-LM Network Adapter                     
+- Touchpad (Synaptics UltraNav)                     
+- Trackpoint                                        
+- Keyboard backlight                                
+- LCD backlight                                     
+- Sleep/wake                                        
+- Power button                                      
+- Power management                                  
+- Thinkpad/Power button LED (sleep mode)            
 
-* **\/S\/L\/E** - /System/Library/Extensions (location of official Apple kexts)
-
-* **\/L\/E** - /Library/Extensions (location of modified/user installed kexts)
-
-* **\/C\/K\/O** - /CLOVER/kexts/Other (location of modified/user installed kexts used for installation/setup)
-
-### Note on EFI and kexts location
-For the purpose of this install, I keep my kexts stored on the flash drive's EFI partition under /C/K/O. Once you have a system that boots, copy the EFI folder from the flash drive to the local EFI partition (you can use Clover Configurator to mount it). Some recommend installing kexts locally to /L/E but I haven't seen any issues with storing them on the EFI partition. I would _**highly**_ recommend keeping the flash drive as a backup in the event that you're unable to boot from the local drive due to an update or your own experimenting.
-
-***
-
-### ThinkPad T470 (Type 20JM) Specs
-* **Part Number:** 20JMS0Q400
-* **BIOS:** 1.60 (N1QET85W)
-    * **Set default config**
-    * **Secure Boot:** disabled
-    * **Boot Mode:** UEFI Only
-    * **CSM Support:** enabled
-
-|                      | Hardware                                      | Working | Supported in            |
-|:-------------------- | :-------------------------------------------- |:-------:|:-----------------------:|
-| **CPU**              | Intel Core i7-6600U @ 2.6GHz (3.4GHz Turbo)   | Yes     | config.plist            |
-| **Graphics**         | Intel HD Graphics 520                         | Yes     | config.plist            |
-| **Memory**           | 16GB DDR4 2666Mhz (SK Hynix)                  | Yes     | - |
-| **Storage**          | Intel SSD Pro 7600P 512GB NVMe                | Yes     | - |
-| [**Battery**](#battery) | 3 + 3-cell (Internal + Removable)             | Yes     | SMCBatteryManager.kext |
-| [**USB**](#usb-camera-usb-ports-etc) | XHC 100-series chipset (8086:9d2f)            | Yes     | USBInjectAll.kext |
-| [**SD Card Reader**](#sd-card-reader) | Realtek USB 3.0 Card Reader (0BDA:0316)       | WIP     | - |
-| [**Audio**](#audio) | Realtek ALC298                                | Yes     | AppleALC.kext, layout-id 3 |
-| [**Camera**](#usb-camera-usb-ports-etc)           | IMC Networks Integrated Camera                | Yes     | USBInjectAll.kext |
-| [**Ethernet**](#ethernet) | Intel I219-LM                                 | Yes     | IntelMausiEthernet.kext |
-| **WiFi/BT** _(M.2 2230 "A")_ | Intel Dual-Band Wireless-AC 8260 (vPro)       | No¹     | - |
-| **WWAN** _(M.2 2242 "B")_ | Not installed                                 | -       | - |
-| [**Function/media keys**](#function-and-media-keys) |                                            | Yes     | - |
-| **Fingerprint Reader**| Validity Sensors (138a:0097)                 | No      | - |
-| [**Touchpad**](#touchpad) | Synaptics UltraNav                            | Yes     | VoodooPS2Controller.kext, SSDT |
-| **Trackpoint**       |                                               | Yes²     | VoodooPS2Controller.kext |
-| **Keyboard backlight** |                                             | Yes     | - |
-| [**Backlight**](#backlight) |                                               | Yes     | AppleBacklightFixup.kext, SSDT |
-| **Touchscreen**      | AU Optronics Touchscreen (appears as Raydium Touch System)                      | No      | - |
-| [**Sleep/Wake**](#power-management-sleep-wake-battery-life-etc) |                                               | WIP     | - |
-| **Power Button**     |                                               | Yes     | - |
-| [**Power Management**](#power-management-sleep-wake-battery-life-etc) |                                               | WIP     | ACPIPowerManagement.kext |
-| **Headphone Jack**   |                                               | -       | - |
-| **Thunderbolt**      |                                               | -       | - |
-| **Other**            | ThinkPad Ultra Dock (90w)                     | Yes³    | - |
-
-¹ Bluetooth appears to be detected and allows you to scan but never detects devices.\
-² Trackpoint is a little too fast; I haven't looked into this so there could be improvement.\
-³ Only have tested USB3, ethernet and charging; video output untested.
+### Untested
+  - Realtek USB Card Reader (0BDA:0316)
+  - _WWAN (M.2 2242 "B") - Empty Slot_
+  - Function/Media Keys (aside from Vol/Bright)
+  - Headphone jack
+  - Thunderbolt 3
+  
+### Unsupported
+- Intel Dual-Band Wireless AC 8260 (vPro)
+- Fingerprint reader (Validity Sensors - 138a:0097)
 
 ## Known Issues
   - Audio device still disappearing after sleep but not everytime now
