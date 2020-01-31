@@ -47,7 +47,7 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
   - Headphone jack
   - Thunderbolt 3
   
-### # Unsupported
+#### Unsupported
 - Intel Dual-Band Wireless AC 8260 (vPro)
 - Fingerprint reader (Validity Sensors - 138a:0097)
 - Touchscreen (Raydium Touch Systems)
