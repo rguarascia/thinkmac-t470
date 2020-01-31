@@ -4,9 +4,9 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 
 ![macOS Catalina on the ThinkPad T470](/macos-t470.png)
 
-## Introduction
+## I. Introduction
 
-## Hardware
+## II. Hardware
 ### Thinkpad T470 (2019)
 - Part Number: 20JMS0Q400
 - BIOS 1.60 (N1QET85W)
@@ -44,14 +44,8 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 ### Unsupported
 - Intel Dual-Band Wireless AC 8260 (vPro)
 - Fingerprint reader (Validity Sensors - 138a:0097)
-
-## Known Issues
-  - Audio device still disappearing after sleep but not everytime now
-  - HEVC videos do not play even though HEVC is supported (per VideoProc)
-  - **Fixed!** ~~Battery life affected by "instant wake" bug (work in progress)~~
-  - Overall battery life is only 4hr (maybe the best on dual 3-cell batteries)
  
-## Hardware Setup and Configuration
+## III. Hardware Setup and Configuration
 
 > _**Info:** Everything you see below is already contained in the EFI folder. Since not all models of the ThinkPad T470 are completely the same, I'm including the methods I used to get the individual modules working which can be cherrypicked to finalize your setup._
 
@@ -59,15 +53,15 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 
 ### Prerequisites
 
-   > _**Info:** These are needed to get this off the ground. Place the kexts on your EFI partition under **/CLOVER/kexts/Other** and config.plist under **/CLOVER**_
+> _**Info:** These are needed to get this off the ground. Place the kexts on your EFI partition under **/CLOVER/kexts/Other** and config.plist under **/CLOVER**_
    
-  - [Lilu.kext](https://github.com/acidanthera/Lilu)
-  - [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen)
-  - VirtualSMC.kext
-    - SMCBatteryManager.kext
-    - SMCLightSensor.kext
-    - SMCProcessor.kext
-    - SMCSuperIO.kext
+- [Lilu.kext](https://github.com/acidanthera/Lilu)
+- [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen)
+- VirtualSMC.kext
+  - SMCBatteryManager.kext
+  - SMCLightSensor.kext
+  - SMCProcessor.kext
+  - SMCSuperIO.kext
     
   - [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
   
