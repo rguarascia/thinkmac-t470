@@ -83,25 +83,18 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
        | change Notify(BAT0 to Notify(BATC          | BAT1     | BATC     |
 
 ### Audio
-- In order to get the ALC298 chipset working, we'll need to make use of [AppleALC.kext](https://github.com/acidanthera/AppleALC) (which requires [Lilu.kext](https://github.com/acidanthera/Lilu)). Download the latest version and place them in the `kexts\Other` directory on your EFI partition.
-- Now that we have the kexts, we need to tell Clover how to use them. Open your config.plist in Clover Configurator and use one of the two methods below:
-  1. Add property under Devices\Properties:
+In order to get the ALC298 chipset working, we'll need to make use of [AppleALC.kext](https://github.com/acidanthera/AppleALC) (which requires [Lilu.kext](https://github.com/acidanthera/Lilu)). Download the latest version and place them in the `kexts\Other` directory on your EFI partition.
+
+Now that we have the kexts, we need to tell Clover how to use them. Open your config.plist in Clover Configurator and use one of the two methods below:
+
+1. **Add property under Devices\Properties:**
+
   ![img_applealc_config](/Extras/applealc-config.png)
+
+2. **Add boot argument under Boot\Arguments:** `alcid=47`
 
 > _**Tip:** Try running `lspci | grep audio` or `aplay -l` from a Linux live USB to find which codec your system has (e.g. ALC298)._
 
-- config.plist 
-  - **Option 1** - Set Device Property (via Clover Configurator under Devices\Properties)
-    
-    | Properties Key | Properties Value | Value Type |
-    |----------------|------------------|:----------:|
-     | layout-id      | 3                | DATA       |
-    
-      > _**Note:** You'll need to know the PCI location. I only had two entries appear: one for the iGPU (should have key named "ig-platform-id") and another for onboard audio (PciRoot(0)/Pci(0x1f,3)._
-        
-  - **Option 2** - Use Boot Argument
-    - **Add via Clover Configurator:** Boot > Arguments
-        `alcid=47`
 
 ### Ethernet
   - [IntelMausiEthernet.kext](https://github.com/RehabMan/OS-X-Intel-Network)
