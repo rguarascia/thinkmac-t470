@@ -4,9 +4,14 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 
 ![macOS Catalina on the ThinkPad T470](/macos-t470.png)
 
-## I. Introduction
+## Introduction
 
-## II. Hardware
+## Disclaimer
+ I highly recommend pulling and decompiling your own DSDT to apply any static patches as mine may not allow your system to boot. There are plently of detailed guides to figure this part out but essentially you'll be extracting the ACPI files (press F4 on the Clover boot menu which will silently copy these to `/EFI/CLOVER/ACPI/origin`), decompiling them with a tool called `iasl` and using another tool called `MaciASL` to apply the patches and compile the DSDT.
+
+**Make sure you keep a disassembled copy of your DSDT that you apply patches to and then compile for use. If you don't, you'll have to reapply any previous patches each time you use another. I also recommend keeping a working backup of your DSDT.aml and DSDT.dsl files in the event a patch causes issues.**
+ 
+## Hardware
 ### Thinkpad T470 (2019)
 - Part Number: 20JMS0Q400
 - BIOS 1.60 (N1QET85W)
@@ -18,6 +23,7 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
 ### Tested and working
 - Intel Core i7-6600U @ 2.6GHz / 3.4Ghz Turbo       
 - Intel HD Graphics 520                             
+- 1920x1080 IPS Panel (Matte)
 - 16GB DDR4 2666Mhz (SK Hynix)                      
 - Intel SSD Pro 7600P 512GB NVME                    
 - Dual 3-cell batteries                             
@@ -48,13 +54,23 @@ _**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc.
  
 ***
 
+## Tools
+
+- USB flash drive with macOS Installer & CLOVER
+  - Windows - [gibMacOS](https://github.com/corpnewt/gibMacOS)
+  - macOS & Linux - [macos_usb](https://github.com/notthebee/macos_usb)
+- Clover Configurator
+- iasl (needed to decompile ACPI files)
+- MaciASL (needed to patch and compile ACPI files)
+- IORegistryExplorer (good for troubleshooting and needed to create custom SSDT for USBInjectAll)
+
 ## Getting Started
 
 Everything described below is already contained in the EFI folder, though some kexts may not be the latest version available by the time you read this. Since not all models of the ThinkPad T470 are completely the same, I'm including the methods I used to get the individual devices working which can be cherrypicked to finalize your setup.
 
 ### Minimum required to boot installer
 
-If you're just getting started and you've got yourself a bootable USB installer with CLOVER loaded on it go ahead and install these kexts to `/EFI/CLOVER/kexts/Other` and place the config.plist under `/EFI/CLOVER`. I found these necessary to get the installer running and macOS installed. Most things such as battery status, brightness control, audio, etc. will not work but that's expected.
+If you're just getting started and you've got yourself a bootable USB installer with CLOVER loaded on it, go ahead and install these kexts to `/EFI/CLOVER/kexts/Other` and place the config.plist under `/EFI/CLOVER`. I found these necessary to get the installer running and macOS installed. Most things such as battery status, brightness control, audio, etc. will not work but that's expected.
 
 - [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
 - [Lilu](https://github.com/acidanthera/Lilu)
@@ -77,9 +93,9 @@ Now in order to get the battery status indicator working, we need to apply a DSD
 ![battery-notify](/Extras/battery-notify.png)
 
 ## Audio
-In order to get the ALC298 chipset working, we'll need to make use of [AppleALC.kext](https://github.com/acidanthera/AppleALC) (which requires [Lilu.kext](https://github.com/acidanthera/Lilu)). Download the latest version and place them in the `kexts\Other` directory on your EFI partition.
+In order to get the ALC298 chipset working, we'll need to make use of [AppleALC.kext](https://github.com/acidanthera/AppleALC) (which requires [Lilu.kext](https://github.com/acidanthera/Lilu)). Download the latest versions and place them under `/EFI/CLOVER/kexts/Other`.
 
-Now that we have the kexts, we need to tell Clover how to use them. Open your config.plist in Clover Configurator and use one of the two methods below:
+Now that we have the plugin, we need to tell Clover how to use it. Open your config.plist in Clover Configurator and use one of the two methods below:
 
 1. **Add property under Devices\Properties:**
 
@@ -91,19 +107,18 @@ Now that we have the kexts, we need to tell Clover how to use them. Open your co
 
 
 ## Ethernet
-  - [IntelMausiEthernet.kext](https://github.com/RehabMan/OS-X-Intel-Network)
-    - **Location:** /EFI/CLOVER/kexts/Other
+
+Getting the onboard network adapter working only requires placing [IntelMausiEthernet](https://github.com/RehabMan/OS-X-Intel-Network) under `/EFI/CLOVER/kexts/Other`.
     
-  > _**Note:** For some reason, I couldn't get this to work with the installer so I used a USB to Ethernet adapter. It does work after booting the first time.
+> _**Warning:** For some reason, I couldn't get this to work with the installer so I used a USB to Ethernet adapter. Once macOS was installed I was able to use the onboard network adapter.
 
 
 ## Backlight
-  - SSDT-PNLF.aml
-    - **Location:** /EFI/CLOVER/ACPI/patched
-    
-  - [AppleBacklightFixup.kext](https://github.com/RehabMan/AppleBacklightFixup)
-    - **Location:** /EFI/CLOVER/kexts/Other
-    
+
+The backlight works but we need to be able to control its brightness. Place the `SSDT-PNLF.aml` from my EFI folder inside of the `/EFI/CLOVER/ACPI/patched` directory and put [AppleBacklightFixup.kext](https://github.com/RehabMan/AppleBacklightFixup) under `/EFI/CLOVER/kexts/Other`. These alone should give you control of the backlight under System Preferences.
+
+In order to control the backlight using the brightness keys involves patching the DSDT.
+
   -  Brightness Controls
      > _**Note:** My model's brightness keys (Fn+F5 & Fn+F6) uses ACPI not PS2. To determine the key name (\_Q14, \_Q15 below) please see RehabMan's [ACPIDebug.kext](https://github.com/RehabMan/OS-X-ACPI-Debug)._
      > _**Compatibility Note:** If using ACPIDebug.kext to determine keys, syslog/Console.app will not show these anymore. From Terminal run `log show --last 5 | grep ACPIDebug` instead._
