@@ -1,6 +1,7 @@
 # thinkmac-t470
 
-_**Supports:** macOS Catalina 10.15.x including iCloud, iMessage, FaceTime, etc._
+_**Tested on:** macOS Mojave 10.14.x, macOS Catalina 10.15.x
+_**Apple Services:** iCloud, iMessage, FaceTime, etc. tested and working!_
 
 ![macOS Catalina on the ThinkPad T470](/macos-t470.png)
 
