@@ -1,6 +1,6 @@
 # thinkmac-t470
 
-_**Tested on:** macOS Mojave 10.14.x, macOS Catalina 10.15.x
+_**Tested on:** macOS Mojave 10.14.x, macOS Catalina 10.15.x_
 _**Apple Services:** iCloud, iMessage, FaceTime, etc. tested and working!_
 
 ![macOS Catalina on the ThinkPad T470](/macos-t470.png)
