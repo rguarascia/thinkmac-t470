@@ -99,11 +99,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_UIAC", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 16, 0, 0, 0 },
                     },
-                    "SS05", Package() // USB-C
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 17, 0, 0, 0 },
-                    },
+//                    "SS05", Package() // USB-C (not supported - yet?)
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 17, 0, 0, 0 },
+//                    },
 //                    "SS06", Package()
 //                    {
 //                        "UsbConnector", 3,
