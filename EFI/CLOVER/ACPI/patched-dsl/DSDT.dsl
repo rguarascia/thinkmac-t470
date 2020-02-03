@@ -19566,6 +19566,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "SKL     ", 0x00000000)
         }
 
         OPTS (Arg0)
+        If (5 == Arg0) { \_SB.PCI0.XHC.PMEE = 0 }
     }
 
     Name (WAKI, Package (0x02)
