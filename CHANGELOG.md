@@ -26,3 +26,13 @@
   - Added "Extras" directory which includes individual DSDT patches
   - Moved \*.DSL files to their own directory
   - Cleaned up unused/leftover files
+
+#### v2.4 _(February 3, 2020)_
+  - Tested on macOS Mojave 10.14.6
+  - Fixed: Audio device no longer disappears with new power management using CPUFriend/CPUFriendFriend
+  - Fixed: Cleaned up and renamed SSDTs as appropriate
+  - Fixed: LED no longer is stuck after sleep. This was due to an incorrect USB _PRW patch being applied.
+  - Improvement: Modified several BIOS options to help reduce battery consumption (see README)
+  - Improvement: Built new DSDT with new BIOS changes
+  - Added: FileVault2 tested and fully works on Mojave and Catalina
+  - Added: DSDT-stockbios-nosecureboot.dsl for default BIOS settings is included under ACPI/patched-dsl
