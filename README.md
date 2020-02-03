@@ -16,11 +16,15 @@ _**Apple Services:** iCloud, iMessage, FaceTime, etc. tested and working!_
 ## Hardware
 #### Thinkpad T470 (2019)
 - Part Number: 20JMS0Q400
-- BIOS 1.60 (N1QET85W)
+- BIOS 1.61 (N1QUJ27W)
   - Set default config
-  - Secure Boot: disabled
-  - Boot Mode: UEFI Only
-  - CSM Support: enabled
+  - Config > USB > Always on USB: Disabled
+  - Config > Thunderbolt 3 > All options: Disabled (No Security)
+  - Security > Security Chip: Disabled (TPM2.0)
+  - Security > I/O Port Access: WWAN, Fingerprint, TB3, WiGig: Disabled
+  - Security > Secure Boot > Secure Boot: disabled
+  - Startup > Boot Mode: UEFI Only
+  - Startup > CSM Support: Disabled
   
 #### Tested and working
 - Intel Core i7-6600U @ 2.6GHz / 3.4Ghz Turbo       
