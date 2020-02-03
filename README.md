@@ -7,11 +7,15 @@ _**Apple Services:** iCloud, iMessage, FaceTime, etc. tested and working!_
 ![macOS Catalina on the ThinkPad T470](/macos-t470.png)
 
 ## Introduction
+This project is designed to help other T470 owners get a fully working macOS installation on their Thinkpads. Maybe you don't have a T470 but have run into a problem with a specific hardware device that is shared between this system and yours. Either way, Welcome! If you run into an issue with this guide or have a suggestion, feel free to submit an issue. I will maintain this as best I can with more updates coming soon to this guide.
 
-## Disclaimer
- I highly recommend pulling and decompiling your own DSDT to apply any static patches as mine may not allow your system to boot. There are plently of detailed guides to figure this part out but essentially you'll be extracting the ACPI files (press F4 on the Clover boot menu which will silently copy these to `/EFI/CLOVER/ACPI/origin`), decompiling them with a tool called `iasl` and using another tool called `MaciASL` to apply the patches and compile the DSDT.
-
-**Make sure you keep a disassembled copy of your DSDT that you apply patches to and then compile for use. If you don't, you'll have to reapply any previous patches each time you use another. I also recommend keeping a working backup of your DSDT.aml and DSDT.dsl files in the event a patch causes issues.**
+## Disclaimer & Notes
+- Always keep a copy of your disassembled DSDT file and back it up as you apply patches.
+  - On top of this, I also keep each patch in a separate txt file in case I need to rebuild my DSDT
+- To keep power management and battery life under control, I have disabled always-on USB and wake from thunderbolt
+- Battery life is currently on par with what I was getting under Windows
+- I haven't experienced a single kernel panic or other crash on Mojave or Catalina
+- Your results may vary, submit an issue if you need help and I'll do my best to help you
  
 ## Hardware
 #### Thinkpad T470 (2019)
@@ -64,8 +68,8 @@ _**Apple Services:** iCloud, iMessage, FaceTime, etc. tested and working!_
   - Windows - [gibMacOS](https://github.com/corpnewt/gibMacOS)
   - macOS & Linux - [macos_usb](https://github.com/notthebee/macos_usb)
 - Clover Configurator
-- iasl (needed to decompile ACPI files)
-- MaciASL (needed to patch and compile ACPI files)
+- iasl (needed to disassemble ACPI files)
+- MaciASL (needed to patch and assemble ACPI files)
 - IORegistryExplorer (good for troubleshooting and needed to create custom SSDT for USBInjectAll)
 
 ## Getting Started
@@ -165,7 +169,7 @@ In order to control the backlight using the brightness keys involves patching th
   - **Location:** /EFI/CLOVER/ACPI/patched
 
 ## USB (Camera, USB ports, etc.)
-> Coming soon
+It is easiest to just use RehabMan's guide [here](https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311/) to create a custom SSDT. It seems difficult at first but it's really quite easy. You can also take a look at my SSDT-UIAC-T470.dsl to get an idea of how it should look. I've left comments pertaining to which logical device belongs to which physical device. I would also recommend disabling (which is done by commenting out `//` those lines) things that aren't supported like the touchscreen, fingerprint reader, etc.
 
 ## Power Management (Sleep, wake, battery life, etc.)
 > Coming soon
