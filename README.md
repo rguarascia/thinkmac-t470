@@ -10,7 +10,7 @@ _**Apple Services:** iCloud, iMessage, FaceTime, etc. tested and working!_
 This project is designed to help other T470 owners get a fully working macOS installation on their Thinkpads. Maybe you don't have a T470 but have run into a problem with a specific hardware device that is shared between this system and yours. Either way, Welcome! If you run into an issue with this guide or have a suggestion, feel free to submit an issue. I will maintain this as best I can with more updates coming soon to this guide.
 
 ## Disclaimer & Notes
-- Always keep a copy of your disassembled DSDT file and back it up as you apply patches.
+- ___*Always*_ keep a copy of your disassembled DSDT file and back it up as you apply patches.__
   - On top of this, I also keep each patch in a separate txt file in case I need to rebuild my DSDT
 - To keep power management and battery life under control, I have disabled always-on USB and wake from thunderbolt
 - Battery life is currently on par with what I was getting under Windows
@@ -94,7 +94,7 @@ If you're just getting started and you've got yourself a bootable USB installer 
 
 ## Battery
 
-Since the ThinkPad T470 has two batteries (internal & removable), we need to use a patch that will present both batteries as one to the system. From this repo, grab `SSDT-BATC-T470.aml` and place it under `/EFI/CLOVER/ACPI/patched`.
+Since the ThinkPad T470 has two batteries (internal & removable), we need to use a patch that will present both batteries as one to the system. From this repo, grab `SSDT-BATC-T470.aml` and place it under `/EFI/CLOVER/ACPI/patched`. You will also need to apply a DSDT patch located at `Extras/DSDT Patch/Battery Indicator` via MaciASL.
 
 Now in order to get the battery status indicator working, we need to apply a DSDT hotpatch via Clover Configurator. Open the config.plist from your EFI partition in Clover Configurator and select ACPI from the sidebar. Under DSDT\Patches we'll add these four `change Notify` lines:
 
