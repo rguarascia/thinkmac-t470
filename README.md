@@ -31,10 +31,10 @@ This project is designed to help other T470 owners get a fully working macOS ins
   - Startup > CSM Support: Disabled
   
 #### Tested and working
-- Intel Core i7-6600U @ 2.6GHz / 3.4Ghz Turbo       
-- Intel HD Graphics 520                             
+- Intel Core i7-7300U @ 2.6GHz
+- Intel HD Graphics 620                             
 - 1920x1080 IPS Panel (Matte)
-- 16GB DDR4 2666Mhz (SK Hynix)                      
+- 8GB DDR4 2133Mhz                      
 - Intel SSD Pro 7600P 512GB NVME                    
 - Dual 3-cell batteries                             
 - USB - XHC 100-series chipset (8086:9d2f)          
@@ -48,7 +48,9 @@ This project is designed to help other T470 owners get a fully working macOS ins
 - Sleep/wake                                        
 - Power button                                      
 - Power management                                  
-- Thinkpad/Power button LED (sleep mode)            
+- Thinkpad/Power button LED (sleep mode)       
+- Intel Dual-Band Wireless AC 8260 (vPro) (buggy but works)
+
 
 #### Untested
   - Realtek USB Card Reader (0BDA:0316)
@@ -58,7 +60,6 @@ This project is designed to help other T470 owners get a fully working macOS ins
   - Thunderbolt 3
   
 #### Unsupported
-- Intel Dual-Band Wireless AC 8260 (vPro)
 - Fingerprint reader (Validity Sensors - 138a:0097)
 - Touchscreen (Raydium Touch Systems)
 
@@ -80,7 +81,7 @@ Everything described below is already contained in the EFI folder, though some k
 
 If you're just getting started and you've got yourself a bootable USB installer with CLOVER loaded on it, go ahead and install these kexts to `/EFI/CLOVER/kexts/Other` and place the config.plist under `/EFI/CLOVER`. I found these necessary to get the installer running and macOS installed. Most things such as battery status, brightness control, audio, etc. will not work but that's expected.
 
-- [config.plist for HD 520](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD515_520_530_540.plist)
+- [config.plist for HD 620](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD615_620_630_640_650.plist)
 - [Lilu](https://github.com/acidanthera/Lilu)
 - [WhateverGreen](https://github.com/acidanthera/WhateverGreen)
 - VirtualSMC
@@ -178,6 +179,7 @@ It is easiest to just use RehabMan's guide [here](https://www.tonymacx86.com/thr
 Make sure you generate a new serial number and UUID in Clover Configurator to avoid any conflicts with iCloud, iMessage, etc. I've removed some of my unique identifiers so they
 
 ## Special Thanks
+- [digitalec](https://github.com/digitalec/thinkmac-t470) - Starter repo, modified to work for 7th gen
 - [okay](https://github.com/okay/t470) - some good info here which kickstarted my efforts
 - [RehabMan](https://github.com/RehabMan) - base config.plist for Intel 520, various kexts, DSDT patches and SSDTs
 - [tluck](https://github.com/tluck/Lenovo-T460-Clover/tree/master/DSDT.T470) - modified version of RehabMan's SSDT-BATC; SSDT-Thinkpad_Clickpad
